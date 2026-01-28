@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   labels:
     app: will
-    extra: cyn  
   name: will
 spec:
   replicas: 10
