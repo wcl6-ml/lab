@@ -10,7 +10,7 @@
     "all",
     "--network=host"
   ],
-  
+  "forwardPorts": [8001],
   "remoteUser": "vscode",
   "onCreateCommand": "chmod +x scripts/setup && scripts/setup",
 	"postCreateCommand": "chmod +x scripts/install_torch.sh && scripts/install_torch.sh"
