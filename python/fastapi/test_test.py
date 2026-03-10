@@ -20,7 +20,7 @@ def mock_model():
 
 @pytest.fixture
 def auth_headers():
-    return {"API_KEY": TEST_API_KEY}
+    return {"x-api-key": TEST_API_KEY}
 
 # 1. Grab the key from CI env, or use a local fallback
 TEST_API_KEY = os.getenv("API_KEY", "ci-test-dummy-key")
