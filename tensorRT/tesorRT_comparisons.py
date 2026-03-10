@@ -61,7 +61,7 @@ inputs = [torch_tensorrt.Input((1, 1, 1024), dtype=torch.float32)]
 trt_model = torch_tensorrt.compile(model, ir="dynamo", inputs=inputs)
 
 # Save for deployment (This is what goes to your k3s edge container)
-torch.export.save(trt_model, "rf_classifier.ts")
+torch_tensorrt.save(trt_model, "rf_classifier.ts", output_format="torchscript", inputs=[dummy_input])
 
 import time
 start = time.time()
