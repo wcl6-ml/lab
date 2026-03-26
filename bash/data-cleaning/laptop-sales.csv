@@ -1,0 +1,5 @@
+transaction_id,date,customer_name,product,quantity,price,city,email
+1,2024-01-15,John Doe,Laptop,1,999.99,New York,JOHN.DOE@email.com
+6,2024-01-17,Charlie Brown,Laptop,1,999.99,Phoenix,charlie.brown@email.com
+9,2024-01-19,Eve Davis,Laptop,1,999.99,San Diego,eve.davis@email.com
+14,2024-01-21,Jack Anderson,Laptop,1,999.99,San Francisco,jack.anderson@email.com

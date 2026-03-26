@@ -56,18 +56,43 @@ output = optimized_model(dummy_input)
 
 # Prepare your inputs (TensorRT needs to know the exact shape/type to optimize)
 inputs = [torch_tensorrt.Input((1, 1, 1024), dtype=torch.float32)]
-
 # Compile to a TensorRT Graph Module
 trt_model = torch_tensorrt.compile(model, ir="dynamo", inputs=inputs)
 
 # Save for deployment (This is what goes to your k3s edge container)
 torch_tensorrt.save(trt_model, "rf_classifier.ts", output_format="torchscript", inputs=[dummy_input])
 
+
 import time
+torch.cuda.synchronize()
 start = time.time()
 for _ in range(100): _ = trt_model(dummy_input)
+torch.cuda.synchronize()
 print(f"TensorRT Avg Latency: {(time.time() - start)/100:.4f}s")
 
 start = time.time()
+torch.cuda.synchronize()
 for _ in range(100): _ = model(dummy_input)
+torch.cuda.synchronize()
 print(f"NoramlModel Avg Latency: {(time.time() - start)/100:.4f}s")
+
+# try ONNX format
+import torch.onnx
+import onnxruntime as ort
+import numpy as np
+# 1. Correct Export
+onnx_inputs = (torch.randn(1, 1, 1024).cuda(),)
+torch.onnx.export(model, onnx_inputs, "rf_classifier.onnx", dynamo=True)
+
+# 2. Setup ONNX Runtime for Benchmarking
+providers = ['CUDAExecutionProvider', 'CPUExecutionProvider']
+session = ort.InferenceSession("rf_classifier.onnx", providers=providers)
+input_name = session.get_inputs()[0].name
+
+# 3. Benchmark ONNX
+# Convert torch tensor to numpy for ONNX Runtime
+numpy_input = dummy_input.cpu().numpy()
+torch.cuda.synchronize()
+
+output = session.run(None, {input_name: numpy_input})
+torch.cuda.synchronize()

@@ -1,0 +1,16 @@
+transaction_id,date,customer_name,product,quantity,price,city,email
+1,2024-01-15,John Doe,Laptop,1,999.99,New York,JOHN.DOE@email.com
+2,2024-01-15,Jane Smith,Mouse,2,25.50,Los Angeles,jane.smith@email.com
+3,2024-01-16,Bob Johnson,Keyboard,1,75.00,Chicago,  bob@email.com  
+4,2024-01-16,Alice Williams,Monitor,1,299.99,Houston,alice.williams@EMAIL.COM
+5,2024-01-17,John Doe,USB Cable,5,10.00,New York,JOHN.DOE@email.com
+6,2024-01-17,Charlie Brown,Laptop,1,999.99,Phoenix,charlie.brown@email.com
+2,2024-01-15,Jane Smith,Mouse,2,25.50,Los Angeles,jane.smith@email.com
+7,2024-01-18,Diana Prince,Headphones,1,150.00,Philadelphia,diana@email.com
+8,2024-01-18,,Monitor,2,299.99,San Antonio,unknown@email.com
+9,2024-01-19,Eve Davis,Laptop,1,999.99,San Diego,eve.davis@email.com
+10,2024-01-19,Frank Miller,Mouse,3,25.50,Dallas,frank.miller@email.com
+11,2024-01-20,Grace Lee,Keyboard,1,75.00,San Jose,grace.lee@email.com
+12,2024-01-20,Henry Wilson,USB Cable,10,10.00,Austin,henry@email.com
+13,2024-01-21,Ivy Martinez,Headphones,2,150.00,Jacksonville,ivy.martinez@email.com
+14,2024-01-21,Jack Anderson,Laptop,1,999.99,San Francisco,jack.anderson@email.com

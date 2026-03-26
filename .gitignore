@@ -1,6 +1,10 @@
 .swp
 *.egg*
 *.agekey
+
+
+# python related
 *.env
 *__pycache__*
 __init__.py
+*.rt
