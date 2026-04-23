@@ -1,0 +1,9 @@
+{
+  "name": "DVC-devpod",
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "vscode",
+  "onCreateCommand": "chmod +x scripts/setup && scripts/setup",
+}

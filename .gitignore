@@ -1,4 +1,4 @@
-.swp
+*.swp
 *.egg*
 *.agekey
 
@@ -8,3 +8,8 @@
 *__pycache__*
 __init__.py
 *.rt
+
+# projec specific
+*.7z
+DVC_example/*.git/
+DVC_exmple2/*.git/

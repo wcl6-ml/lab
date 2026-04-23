@@ -1,0 +1,9 @@
+#!/bin/bash
+/usr/local/bin/mise trust --yes /workspaces/$DEVPOD_WORKSPACE_ID/mise.toml && /usr/local/bin/mise install --yes
+
+# install python packages
+set -e
+echo "Intalling Python dependencies..."
+
+pip install -e ".[dev]"
+
